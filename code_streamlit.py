@@ -43,7 +43,7 @@ st.markdown("<h1 class='header'>Insecap - Tiempos de Pago</h1>", unsafe_allow_ht
 if seccion == "Clientes/Empresas":
     st.markdown("<h3 class='section-title'>Resumen General</h3>", unsafe_allow_html=True)
     promedio_general = 45  # placeholder
-    st.metric("Días promedio de pago (general)", f"{promedio_general} días")
+    st.metric("Promedio de pago general", f"{promedio_general} días")
 
     st.divider()
     st.markdown("<h3 class='section-title'>Buscar Cliente</h3>", unsafe_allow_html=True)
@@ -62,8 +62,19 @@ if seccion == "Clientes/Empresas":
                 'Inicio': ['2024-04-01', '2024-05-01'],
                 'Estimado Pago': ['2024-06-01', '2024-07-01']
             }),
-            "estimacion_nueva": 33
+            "estimacion_nueva": 33,
+            "promedio_pago_total": 45
         }
+
+        # Nombre de la empresa
+        st.markdown("<h3 class='section-title'>'Nombre de la empresa'</h3>", unsafe_allow_html=True)
+
+        # Mostrar métricas en columnas
+        col1, col2 = st.columns(2)
+        with col1:
+            st.metric("Promedio histórico de pago", f"{datos['promedio_pago_total']} días")
+        with col2:
+            st.metric("Estimado de pago para nueva comercialización", f"{datos['estimacion_nueva']} días")
 
         st.markdown("**Tiempos promedio por etapa:**")
         etapas = ['En Proceso → Terminado', 'Terminado → Facturado', 'Facturado → Pagado']
