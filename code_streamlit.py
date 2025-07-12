@@ -526,7 +526,7 @@ elif seccion == "👥 Líderes Comerciales":
                 st.markdown(f"""
                     <div class="insecap-card fade-in">
                         <h4>📊 Total de comercializaciones</h4>
-                        <h3>{data_lideres_comerciales["total_comercializaciones_lider"]:.1f} días</h3>
+                        <h3>{data_lideres_comerciales["total_comercializaciones_lider"]:.1f}</h3>
                     </div>
                     """, unsafe_allow_html=True)
                 
