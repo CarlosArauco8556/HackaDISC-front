@@ -361,7 +361,7 @@ if seccion == "🏢 Clientes/Empresas":
 
     # Resumen general mejorado
     try:
-        url_general = f"http://127.0.0.1:8000/comercializaciones/tiempo_pago_promedio"
+        url_general = f"https://web-production-1683.up.railway.app/comercializaciones/tiempo_pago_promedio"
         response_general = requests.get(url_general)
         if response_general.status_code == 200:
             data_general = response_general.json()
@@ -399,8 +399,8 @@ if seccion == "🏢 Clientes/Empresas":
     if nombre_cliente and (buscar_btn or nombre_cliente):
         try:
             # --- Obtener datos de cliente ---
-            url_info_cliente = f"http://127.0.0.1:8000/clientes/tiempo_pago_promedio/{nombre_cliente}"
-            url_etapas_cliente = f"http://127.0.0.1:8000/clientes/tiempos_etapa/{nombre_cliente}"
+            url_info_cliente = f"https://web-production-1683.up.railway.app/clientes/tiempo_pago_promedio/{nombre_cliente}"
+            url_etapas_cliente = f"https://web-production-1683.up.railway.app/clientes/tiempos_etapa/{nombre_cliente}"
             response_info_cliente = requests.get(url_info_cliente)
             response_etapas_cliente = requests.get(url_etapas_cliente)
 
@@ -462,7 +462,7 @@ if seccion == "🏢 Clientes/Empresas":
 
                     if predict_btn:
                         try:
-                            url_pred = f"http://127.0.0.1:8000/clientes/predict_cliente?cliente_id={cliente_id}&valor_venta={valor_venta}"
+                            url_pred = f"https://web-production-1683.up.railway.app/clientes/predict_cliente?cliente_id={cliente_id}&valor_venta={valor_venta}"
                             pred_response = requests.get(url_pred)
 
                             if pred_response.status_code == 200:
@@ -516,7 +516,7 @@ elif seccion == "👥 Líderes Comerciales":
 
     if correo_lider and (buscar_lider_btn or correo_lider):
         try:
-            url_lideres_comerciales = f"http://127.0.0.1:8000/clientes/tiempos_etapa_lider/{correo_lider}"
+            url_lideres_comerciales = f"https://web-production-1683.up.railway.app/clientes/tiempos_etapa_lider/{correo_lider}"
             response_lideres_comerciales = requests.get(url_lideres_comerciales)
             if response_lideres_comerciales.status_code == 200:
                 data_lideres_comerciales = response_lideres_comerciales.json()
@@ -571,7 +571,7 @@ elif seccion == "🏆 Destacados":
     st.markdown("<h3 class='section-title'>🏆 Empresas Destacadas</h3>", unsafe_allow_html=True)
     
     try:
-        url_destacados = f"http://127.0.0.1:8000/comercializaciones/destacados"
+        url_destacados = f"https://web-production-1683.up.railway.app/comercializaciones/destacados"
         response_destacados = requests.get(url_destacados)
         if response_destacados.status_code == 200:
             data_destacados = response_destacados.json()
